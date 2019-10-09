@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 
 namespace FlappyBird
 {
@@ -6,7 +7,7 @@ namespace FlappyBird
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Game g = new Game();
         }
     }
 }
