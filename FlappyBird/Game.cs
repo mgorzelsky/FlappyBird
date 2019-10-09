@@ -12,13 +12,13 @@ namespace FlappyBird
         {
             state = new CellState[height, width];
 
-            for (int i = 0; i < height; i++)
-            {
-                for (int j = 0; j < width; j++)
-                {
-                    Console.WriteLine(state[i,j]);
-                }
-            }
+            //for (int i = 0; i < height; i++)
+            //{
+            //    for (int j = 0; j < width; j++)
+            //    {
+            //        Console.Write(state[i,j]);
+            //    }
+            //}
         }
     }
 }
