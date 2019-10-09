@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Timers;
 
 namespace FlappyBird
@@ -6,10 +7,18 @@ namespace FlappyBird
     public class Game
     {
         Bird bird = new Bird();
-        //Render render = new Render();
+        //Walls wall = new Walls();
+        Timer wallGenerator = new Timer(5000);
+        Timer gameTimer = new Timer(50000);
+        List<Walls> walls = new List<Walls>();
 
         public Game()
         {
+            wallGenerator.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            wallGenerator.Enabled = true;
+
+       
+
             Console.CursorVisible = false;
             ConsoleKey action = ConsoleKey.H;
 
@@ -20,7 +29,12 @@ namespace FlappyBird
             }
         }
 
-        
+        public void OnTimedEvent(Object source, ElapsedEventArgs e)
+        {
+            walls.Add(new Walls());
+        }
+
+
 
     }
 }

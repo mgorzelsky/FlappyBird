@@ -8,7 +8,7 @@ namespace FlappyBird
     {
         private int gravity = 1;
         //private int size = 2;
-        private Point position = new Point(5,5);
+        private Point position = new Point(20,5);
         private Timer timer = new Timer(500);
         private Render render = new Render();
         public int priorY = 5;
