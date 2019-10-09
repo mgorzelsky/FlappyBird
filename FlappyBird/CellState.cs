@@ -4,11 +4,5 @@ using System.Text;
 
 namespace FlappyBird
 {
-    class Game
-    {
-        public void PlayGame()
-        {
-            
-        }
-    }
+    public enum { Empty, Bird, Pillar };
 }
