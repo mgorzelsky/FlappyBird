@@ -6,7 +6,13 @@ namespace FlappyBird
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            int width = 160;
+            int height = 40;
+            Console.Clear();
+            Console.CursorVisible = false;
+            Console.SetWindowSize(1, 1);
+            Console.SetBufferSize(width, height);
+            Console.SetWindowSize(width, height);
         }
     }
 }
