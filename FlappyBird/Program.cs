@@ -18,7 +18,7 @@ namespace FlappyBird
             Console.WriteLine("Welcome to flappy bird in the terminal.");
             do
             {
-                game.Play();
+                game.PlayGame(height, width);
             } while (playAgain);
 
             if (game.HighScore < 5)
