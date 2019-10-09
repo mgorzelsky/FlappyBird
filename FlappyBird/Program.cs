@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 
 namespace FlappyBird
 {
@@ -29,7 +30,6 @@ namespace FlappyBird
                 Console.Write($"Wow! Thats pretty good! Your high score was {game.HighScore}");
             else
                 Console.Write($"You are really good at this! Your high score was {game.HighScore}");
-
         }
     }
 }
