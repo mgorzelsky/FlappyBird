@@ -15,6 +15,13 @@ namespace FlappyBird
             //Console.SetBufferSize(width, height + 1);
             //Console.SetWindowSize(width, height + 1);
 
+            Game game = new Game();
+            Console.WriteLine("Welcome to flappy bird in the terminal.");
+            do
+            {
+                game.PlayGame(height, width);
+            } while (game.PlayAgain);
+
             //Game game = new Game();
             //Console.WriteLine("Welcome to flappy bird in the terminal.");
             //do
@@ -30,9 +37,6 @@ namespace FlappyBird
             //    Console.Write($"Wow! Thats pretty good! Your high score was {game.HighScore}");
             //else
             //    Console.Write($"You are really good at this! Your high score was {game.HighScore}");
-
-
-            Game game = new Game();
         }
     }
 }
