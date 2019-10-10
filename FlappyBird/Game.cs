@@ -30,9 +30,9 @@ namespace FlappyBird
     public class Game
     {
         Bird bird = new Bird();
-        //Walls wall = new Walls();
-        Timer wallGenerator = new Timer(5000);
-        Timer gameTimer = new Timer(50000);
+        Walls wall = new Walls();
+        Timer wallGenerator = new Timer(2000);
+        //Timer gameTimer = new Timer(50000);
         List<Walls> walls = new List<Walls>();
 
         public Game()
@@ -40,7 +40,7 @@ namespace FlappyBird
             wallGenerator.Elapsed += new ElapsedEventHandler(OnTimedEvent);
             wallGenerator.Enabled = true;
 
-       
+
 
             Console.CursorVisible = false;
             ConsoleKey action = ConsoleKey.H;
