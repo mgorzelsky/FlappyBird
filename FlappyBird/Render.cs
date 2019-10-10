@@ -5,8 +5,7 @@ namespace FlappyBird
 {
     public class Render
     {
-
-        public Render(CellState[,] gameState, int height, int width)
+        public void DrawScreen(CellState[,] gameState, int height, int width)
         {
             StringBuilder screenAsString = new StringBuilder("", height * width);
             char currentCharacter = Convert.ToChar(32);

@@ -16,6 +16,7 @@ namespace FlappyBird
         bool gameOver;
         int height;
         int width;
+        Render render = new Render();
 
         Bird bird;
         //Walls wall = new Walls();
@@ -48,8 +49,8 @@ namespace FlappyBird
                 if (action == ConsoleKey.UpArrow)
                 {
                     bird.Flap();
-                    Step();
-                    Render.Render();
+                    //Step();
+                    //render.DrawScreen(state, height, width);
                 }
             }
 
@@ -64,15 +65,16 @@ namespace FlappyBird
         void Step()
         {
             state = new CellState[height, width];
-            Point birdPosition = bird.getPosition();
-            state[birdPosition.X, birdPosition.Y] = CellState.Bird;
+            int birdX = bird.getX();
+            int birdY = bird.getY();
+            state[birdY, birdX] = CellState.Bird;
             foreach(var wall in walls)
             {
                 int[] wallArray = wall.getWall();
-                for (int y = 0; y < wallArray.length; y++)
+                for (int y = 0; y < wallArray.Length; y++)
                 {
                     if (wallArray[y] == 0)
-                        state[wall.getPosition().X, y] = CellState.Pillar;
+                        state[y, wall.getCurrentX()] = CellState.Pillar;
                 }
             }
             CheckCollision();
@@ -83,9 +85,9 @@ namespace FlappyBird
             if (bird.getY() < 1 || bird.getY() > height - 1)
             foreach (var wall in walls)
             {
-                if (wall.getPosition().X == bird.getX)
+                if (wall.getCurrentX() == bird.getX())
                 {
-                    if (wall.Wall[bird.getY] == 0)
+                    if (wall.getWall()[bird.getY()] == 0)
                         gameOver = true;
                 }
             }
@@ -99,7 +101,7 @@ namespace FlappyBird
         public void GameLoop(Object source, ElapsedEventArgs e)
         {
             Step();
-            Render.Render();
+            render.DrawScreen(state, height, width);
         }
 
 
