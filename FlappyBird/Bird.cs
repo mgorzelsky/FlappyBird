@@ -8,10 +8,12 @@ namespace FlappyBird
     {
         private int gravity = 1;
         //private int size = 2;
-        private Point position = new Point(20,5);
+        //private Point position = new Point(20,5);
+        private int currentX = 20;
+        private int currentY = 5;
         private Timer timer = new Timer(500);
-        private Render render = new Render();
-        public int priorY = 5;
+        //private Render render = new Render();
+        //public int priorY = 5;
 
         public Bird()
         {
@@ -19,43 +21,44 @@ namespace FlappyBird
             timer.Enabled = true;
         }
 
-        public Point getPosition()
-        {
-            return position;
-        }
+        //public Point getPosition()
+        //{
+        //    return position;
+        //}
 
         public int getX()
         {
-            return position.X;
+            return currentX;
         }
 
         public int getY()
         {
-            return position.Y;
+            return currentY;
         }
 
-        public void setX(int x)
-        {
-            position.X = x;
-        }
+        //public void setX(int x)
+        //{
+        //    position.X = x;
+        //}
 
-        public void setY(int y)
-        {
-            position.Y = y;
-        }
+        //public void setY(int y)
+        //{
+        //    position.Y = y;
+        //}
 
         public void Flap()
         {
-            priorY = position.Y;
-            position.Y -= 3;
-            render.drawBird(this);
+            
+            currentY -= 3;
+            //render.drawBird(this);
         }
 
         public void Drop()
         {
-            priorY = position.Y;
-            position.Y += gravity;
-            render.drawBird(this);
+            //priorY = position.Y;
+            currentY += gravity;
+            //position.Y += gravity;
+            //render.drawBird(this);
 
         }
 
