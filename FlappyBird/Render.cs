@@ -32,6 +32,33 @@ namespace FlappyBird
             }
             Console.WriteLine(screenAsString);
         }
+
+        public void Display(CellState[,] gameState, int height, int width)
+        {
+            StringBuilder screenAsString = new StringBuilder("", height * width);
+            char currentCharacter = Convert.ToChar(32);
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    switch (gameState[y, x])
+                    {
+                        case (CellState.Empty):
+                            currentCharacter = Convert.ToChar(32);
+                            break;
+                        case (CellState.Bird):
+                            currentCharacter = '>';
+                            break;
+                        case (CellState.Pillar):
+                            currentCharacter = '|';
+                            break;
+                    }
+                    screenAsString.Append(new char[] { currentCharacter });
+                    //Console.Write(gameState[y, x]);
+                }
+            }
+            Console.WriteLine(screenAsString);
+        }
         /*
         public Render()
         {

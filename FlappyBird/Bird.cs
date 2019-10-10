@@ -8,15 +8,18 @@ namespace FlappyBird
     {
         private int gravity = 1;
         //private int size = 2;
-        private Point position = new Point(20,5);
+        private Point position;
+        private char icon = '>';
         private Timer timer = new Timer(500);
-        private Render render = new Render();
+        //private Render render = new Render();
         public int priorY = 5;
 
-        public Bird()
+        public Bird(int x, int y)
         {
+            position = new Point(x, y);
             timer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
             timer.Enabled = true;
+
         }
 
         public Point getPosition()
@@ -48,14 +51,12 @@ namespace FlappyBird
         {
             priorY = position.Y;
             position.Y -= 3;
-            render.drawBird(this);
         }
 
         public void Drop()
         {
             priorY = position.Y;
             position.Y += gravity;
-            render.drawBird(this);
 
         }
 
