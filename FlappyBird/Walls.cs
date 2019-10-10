@@ -11,15 +11,16 @@ namespace FlappyBird
     {
 
         private Timer timer = new Timer(500);
-        private Point position = new Point(159, 0);
-        private Point priorPosition = new Point(159, 0);
-        private int height = 40;
-        private int width = 2;
+        private int currentX = 159; // starts at the right edge of the screen
+        //private Point position = new Point(159, 0);
+        //private Point priorPosition = new Point(159, 0);
+        private int height = 40; // height is the screen size
+        //private int width = 2;
         public int gap = 15;
         public int offset;
         Random rnd;
         private int speed = 3;
-        private Render render = new Render();
+        //private Render render = new Render();
         private int[] wall;
 
 
@@ -35,33 +36,43 @@ namespace FlappyBird
 
         }
 
-        public Point getPosition()
+
+
+        //public Point getPosition()
+        //{
+        //    return position;
+        //}
+
+        //public Point getPriorPosition()
+        //{
+        //    return priorPosition;
+        //}
+
+        //public int getHeight()
+        //{
+        //    return height;
+        //}
+
+        //public int getWidth()
+        //{
+        //    return width;
+        //}
+
+        // returns the current x position of the wall
+        public int getCurrentX()
         {
-            return position;
+            return currentX;
         }
 
-        public Point getPriorPosition()
-        {
-            return priorPosition;
-        }
 
-        public int getHeight()
-        {
-            return height;
-        }
 
-        public int getWidth()
-        {
-            return width;
-        }
-
+        // moves the x position of the wall 
         public void Move()
         {
-            priorPosition = position;
-            position.X -= speed;
-            render.drawWalls(this);
+            currentX -= speed;
         }
 
+        // returns an array that contains the y position of the wall. 0 represents wall, 1 represents gap
         public int[] getWall()
         {
             return wall;
@@ -75,7 +86,6 @@ namespace FlappyBird
                 wall[wallGap + i] = 1;
             }
         }
-
 
         public void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
