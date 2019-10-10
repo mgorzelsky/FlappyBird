@@ -12,8 +12,8 @@ namespace FlappyBird
             //Console.Clear();
             //Console.CursorVisible = false;
             //Console.SetWindowSize(1, 1);
-            //Console.SetBufferSize(width, height);
-            //Console.SetWindowSize(width, height);
+            //Console.SetBufferSize(width, height + 1);
+            //Console.SetWindowSize(width, height + 1);
 
             //Game game = new Game();
             //Console.WriteLine("Welcome to flappy bird in the terminal.");
