@@ -10,7 +10,7 @@ namespace FlappyBird
     public class Walls
     {
 
-        private Timer timer = new Timer(500);
+        private Timer timer = new Timer(50);
         private int currentX = 159; // starts at the right edge of the screen
         //private Point position = new Point(159, 0);
         //private Point priorPosition = new Point(159, 0);
@@ -19,7 +19,7 @@ namespace FlappyBird
         public int gap = 15;
         public int offset;
         Random rnd;
-        private int speed = 3;
+        private int speed = 1;
         //private Render render = new Render();
         private int[] wall;
 
@@ -69,7 +69,8 @@ namespace FlappyBird
         // moves the x position of the wall 
         public void Move()
         {
-            currentX -= speed;
+            if (currentX > 0)
+                currentX -= speed;
         }
 
         // returns an array that contains the y position of the wall. 0 represents wall, 1 represents gap

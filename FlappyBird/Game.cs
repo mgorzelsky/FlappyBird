@@ -43,23 +43,36 @@ namespace FlappyBird
             Console.CursorVisible = false;
             ConsoleKey action = ConsoleKey.H;
 
-            while (action != ConsoleKey.Q)
-            {
-                action = Console.ReadKey().Key;
-                if (action == ConsoleKey.UpArrow)
-                {
-                    bird.Flap();
-                    //Step();
-                    //render.DrawScreen(state, height, width);
-                }
-            }
-
             gameOver = false;
-
             do
             {
-                Step();
-            } while (!gameOver);
+                //while (action != ConsoleKey.Q)
+                //{
+                if (gameOver != true)
+                {
+
+                    action = Console.ReadKey().Key;
+                    if (action == ConsoleKey.UpArrow)
+                    {
+                        bird.Flap();
+                        //Step();
+                        //render.DrawScreen(state, height, width);
+                    }
+                }
+                //}
+            }
+            while (gameOver != true);
+
+            
+
+            //do
+            //{
+            //    Step();
+
+            Console.Clear();
+            Console.SetCursorPosition(39, 19);
+            Console.WriteLine("Game Over!");
+            Console.ReadKey();
         }
 
         void Step()
@@ -83,12 +96,19 @@ namespace FlappyBird
         void CheckCollision()
         {
             if (bird.getY() < 1 || bird.getY() > height - 1)
+            {
+                gameOver = true;
+                gameTimer.Stop();
+            }
             foreach (var wall in walls)
             {
                 if (wall.getCurrentX() == bird.getX())
                 {
                     if (wall.getWall()[bird.getY()] == 0)
+                    {
                         gameOver = true;
+                        gameTimer.Stop();
+                    }
                 }
             }
         }
