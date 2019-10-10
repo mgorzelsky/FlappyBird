@@ -14,17 +14,24 @@ namespace FlappyBird
             {
                 for (int x = 0; x < width; x++)
                 {
-                    switch (gameState[y, x])
+                    if (y == 0)
+                        currentCharacter = '-';
+                    if (y == 39)
+                        currentCharacter = '-';
+                    if (y > 0 && y < height - 1)
                     {
-                        case (CellState.Empty):
-                            currentCharacter = Convert.ToChar(32);
-                            break;
-                        case (CellState.Bird):
-                            currentCharacter = '>';
-                            break;
-                        case (CellState.Pillar):
-                            currentCharacter = '|';
-                            break;
+                        switch (gameState[y, x])
+                        {
+                            case (CellState.Empty):
+                                currentCharacter = Convert.ToChar(32);
+                                break;
+                            case (CellState.Bird):
+                                currentCharacter = '>';
+                                break;
+                            case (CellState.Pillar):
+                                currentCharacter = '|';
+                                break;
+                        }
                     }
                     screenAsString.Append(new char[] { currentCharacter });
                     //Console.Write(gameState[y, x]);
@@ -32,6 +39,12 @@ namespace FlappyBird
             }
             Console.WriteLine(screenAsString);
         }
+        
+        
+        
+        
+        
+        
         /*
         public Render()
         {
