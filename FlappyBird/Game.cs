@@ -38,6 +38,7 @@ namespace FlappyBird
         {
             this.height = height;
             this.width = width;
+
             Console.CursorVisible = false;
             ConsoleKey action = ConsoleKey.H;
 

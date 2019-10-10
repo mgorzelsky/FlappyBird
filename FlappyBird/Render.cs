@@ -1,10 +1,38 @@
 ﻿using System;
+using System.Text;
+
 namespace FlappyBird
 {
     public class Render
     {
 
-
+        public Render(CellState[,] gameState, int height, int width)
+        {
+            StringBuilder screenAsString = new StringBuilder("", height * width);
+            char currentCharacter = Convert.ToChar(32);
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    switch (gameState[y, x])
+                    {
+                        case (CellState.Empty):
+                            currentCharacter = Convert.ToChar(32);
+                            break;
+                        case (CellState.Bird):
+                            currentCharacter = '>';
+                            break;
+                        case (CellState.Pillar):
+                            currentCharacter = '|';
+                            break;
+                    }
+                    screenAsString.Append(new char[] { currentCharacter });
+                    //Console.Write(gameState[y, x]);
+                }
+            }
+            Console.WriteLine(screenAsString);
+        }
+        /*
         public Render()
         {
         }
@@ -21,41 +49,48 @@ namespace FlappyBird
         public void drawWalls(Walls wall)
         {
             int x = wall.getPosition().X;
-            int y = wall.getPosition().Y;
+            //int y = wall.getPosition().Y;
             int priorX = wall.getPriorPosition().X;
-            int priorY = wall.getPriorPosition().Y;
-            int height = wall.getHeight();
-            int width = wall.getWidth();
+            //int priorY = wall.getPriorPosition().Y;
+            //int height = wall.getHeight();
+            //int width = wall.getWidth();
 
-            for(int i = 0; i < height;i++)
+            //for(int i = 0; i < height;i++)
+            //{
+            //    Console.SetCursorPosition(x, y++);
+            //    Console.Write("<");
+            //    Console.SetCursorPosition(priorX, priorY++);
+            //    Console.Write(" ");
+
+            //}
+
+            //for (int i = 0; i < width; i++)
+            //{
+            //    Console.SetCursorPosition(x++, y);
+            //    Console.Write("<");
+            //    Console.SetCursorPosition(priorX++, priorY);
+            //    Console.Write(" ");
+
+            //}
+
+            //for (int i = 0; i <= height; i++)
+            //{
+            //    Console.SetCursorPosition(x, y--);
+            //    Console.Write("<");
+            //    Console.SetCursorPosition(priorX, priorY--);
+            //    Console.Write(" ");
+            //}
+            int[] pillar = wall.getWall();
+
+            for(int i = 0; i < 40; i++)
             {
-                Console.SetCursorPosition(x, y++);
-                Console.Write("<");
-                Console.SetCursorPosition(priorX, priorY++);
+                Console.SetCursorPosition(x, i);
+                if (pillar[i] == 0) Console.Write("<");
+                else Console.Write(" ");
+                Console.SetCursorPosition(priorX, i);
                 Console.Write(" ");
-
             }
-
-            for (int i = 0; i < width; i++)
-            {
-                Console.SetCursorPosition(x++, y);
-                Console.Write("<");
-                Console.SetCursorPosition(priorX++, priorY);
-                Console.Write(" ");
-
-            }
-
-            for (int i = 0; i <= height; i++)
-            {
-                Console.SetCursorPosition(x, y--);
-                Console.Write("<");
-                Console.SetCursorPosition(priorX, priorY--);
-                Console.Write(" ");
-
-            }
-
-
-
         }
+        */
     }
 }
