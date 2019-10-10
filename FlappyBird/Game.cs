@@ -4,7 +4,7 @@ using System.Text;
 /*
 namespace FlappyBird
 {
-    public enum CellState { Empty, Bird, Pillar };
+
     class Game
     {
         CellState[,] state;
@@ -27,6 +27,7 @@ using System.Timers;
 
 namespace FlappyBird
 {
+    public enum CellState { Empty, Bird, Pillar };
     public class Game
     {
         Bird bird = new Bird();
