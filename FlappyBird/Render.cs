@@ -30,7 +30,7 @@ namespace FlappyBird
                     //Console.Write(gameState[y, x]);
                 }
             }
-            Console.WriteLine(screenAsString);
+            Console.Write(screenAsString);
         }
 
         public void Display(CellState[,] gameState, int height, int width)
