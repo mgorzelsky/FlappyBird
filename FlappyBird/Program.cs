@@ -20,7 +20,7 @@ namespace FlappyBird
             do
             {
                 game.PlayGame(height, width);
-            } while (playAgain);
+            } while (game.PlayAgain);
 
             if (game.HighScore < 5)
                 Console.Write($"Booooooooo! Your high score was {game.HighScore}");
