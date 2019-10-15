@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using System.Drawing;
 using System.Timers;
@@ -33,6 +33,8 @@ namespace FlappyBird
             wall = new int[height];
             offset = height - gap;
             WallBuilder();
+
+          timer.Enabled  = true;
 
         }
 

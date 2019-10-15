@@ -7,10 +7,12 @@ namespace FlappyBird
     {
         public void DrawScreen(CellState[,] gameState, int height, int width)
         {
+            Console.Clear();
             StringBuilder screenAsString = new StringBuilder("", height * width);
             char currentCharacter = Convert.ToChar(32);
             for (int y = 0; y < height; y++)
             {
+                
                 for (int x = 0; x < width; x++)
                 {
                     if (y == 0)
@@ -19,6 +21,7 @@ namespace FlappyBird
                         currentCharacter = '-';
                     if (y > 0 && y < height - 1)
                     {
+
                         switch (gameState[y, x])
                         {
                             case (CellState.Empty):
@@ -33,10 +36,14 @@ namespace FlappyBird
                         }
                     }
                     screenAsString.Append(new char[] { currentCharacter });
-                    //Console.Write(gameState[y, x]);
+
+
                 }
+                screenAsString.Append("\n");
             }
-            Console.WriteLine(screenAsString);
+                Console.SetCursorPosition(0, 0);
+                Console.WriteLine(screenAsString);
+
         }
         
         
